@@ -5,6 +5,8 @@ $id = $_GET['id'];
 $sql = "SELECT * FROM ngos WHERE id = $id";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
+$img = $row['img'];
+
 ?>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -24,7 +26,7 @@ $row = $result->fetch_assoc();
     <section class="content">
 
         <div class="container-fluid">
-            <form id='editForm' method="POST" action="NGOEditSave.php">
+            <form id='editForm' method="POST" action="NGOEditSave.php" enctype="multipart/form-data">
                 <div class="card card-info">
                     <div class="card-header">
                         <h3 class="card-title"><?= $row['name_ngos'] ?></h3>&nbsp; Fill Detail</h3>
@@ -62,18 +64,28 @@ $row = $result->fetch_assoc();
                             <input name='about' type="text" class="form-control" placeholder="about" value="<?= $row['about'] ?>">
                         </div>
 
-                        <!-- Show Current Image -->
-                        <img src="<?=$row['img']?>">
-                        <!-- Img -->
-                        <div class="input-group">
-                            <div class="custom-file">
-                                <input name='' type="file" class="custom-file-input" id="exampleInputFile">
-                                <label class="custom-file-label" for="exampleInputFile">Upload Photo</label>
+
+                        <!-- Pic show and upload -->
+                        <div class='row'>
+                            <div class='col-4'>
+                                <!-- Current pic display -->
+                                <span> Current photo </span></br>
+                                <img src="<?= 'uploads/'.$img ?>" alt="Current pic" width="100" height="100" style="vertical-align:bottom">
                             </div>
-                            <div class="input-group-append">
-                                <span class="input-group-text" id="">Picture</span>
+                            <div class='col-8'>
+                                <!-- Upload Pic -->
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input name='pic' type="file" class="custom-file-input" id="exampleInputFile">
+                                        <label class="custom-file-label" for="exampleInputFile">Upload Photo</label>
+                                    </div>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="">Picture</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <!-- /Pic show and upload -->
                     </div>
 
                     <!-- Button trigger modal -->

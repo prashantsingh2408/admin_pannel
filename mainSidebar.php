@@ -44,14 +44,14 @@
                       </a>
                   </li>
                   <li class="nav-item">
-                      <a href="./user.php" class="nav-link active">
+                      <a href="./user.php" class="nav-link">
                           <i class="nav-icon fas fa-user"></i>
                           <p>Users</p>
                       </a>
                   </li>
                   <!-- Admin -->
                   <li class="nav-item has-treeview menu-open">
-                      <a href="#" class="nav-link active">
+                      <a href="#" class="nav-link ">
                           <i class="nav-icon fas fa-tachometer-alt"></i>
                           <p>
                               Admin Control
@@ -60,39 +60,60 @@
                       </a>
                       <ul class="nav nav-treeview">
                           <li class="nav-item">
-                              <a href="./adminNGO.php" class="nav-link active">
-                                  <i class="far fa-circle nav-icon"></i>
+                              <a href="./adminNGO.php" class="nav-link">
+                                  <!-- <i class="far fa-circle nav-icon"></i> -->
                                   <p>NGO</p>
                               </a>
                           </li>
                       </ul>
                       <ul class="nav nav-treeview">
                           <li class="nav-item">
-                              <a href="./addGoals.php" class="nav-link active">
-                                  <i class="far fa-circle nav-icon"></i>
+                              <a href="./addGoals.php" class="nav-link">
+                                  <!-- <i class="far fa-circle nav-icon"></i> -->
                                   <p>Add Goals</p>
                               </a>
                           </li>
                           <li class="nav-item">
-                              <a href="./achievement.php" class="nav-link active">
-                                  <i class="far fa-circle nav-icon"></i>
-                                  <p>Achivement</p>
+                              <a href="./achievement.php" class="nav-link">
+                                  <!-- <i class="far fa-circle nav-icon"></i> -->
+                                  <p>Achievement</p>
                               </a>
                           </li>
                           <li class="nav-item">
-                              <a href="./stepRate.php" class="nav-link active">
-                                  <i class="far fa-circle nav-icon"></i>
+                              <a href="./stepRate.php" class="nav-link">
+                                  <!-- <i class="far fa-circle nav-icon"></i> -->
                                   <p>Step Rate</p>
                               </a>
                           </li>
                           <li class="nav-item">
-                              <a href="./team.php" class="nav-link active">
-                                  <i class="far fa-circle nav-icon"></i>
+                              <a href="./team.php" class="nav-link">
+                                  <!-- <i class="far fa-circle nav-icon"></i> -->
                                   <p>Team</p>
                               </a>
                           </li>
                       </ul>
                   </li>
+                  <!-- /Admin -->
+
+                  <!-- Site Edit -->
+                  <li class="nav-item has-treeview menu-open">
+                      <a href="#" class="nav-link ">
+                          <i class="nav-icon fas fa-tachometer-alt"></i>
+                          <p>
+                              Site Edit
+                              <i class="right fas fa-angle-left"></i>
+                          </p>
+                      </a>
+                      <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                              <a href="./preloader.php" class="nav-link">
+                                  <!-- <i class="far fa-circle nav-icon"></i> -->
+                                  <p>Preloader</p>
+                              </a>
+                          </li>
+                      </ul>
+                  </li>
+                  <!-- /Admin -->
 
 
               </ul>

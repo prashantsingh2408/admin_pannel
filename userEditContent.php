@@ -21,6 +21,7 @@ if ($result = $conn->query($sql)) {
     $birthday = $row['birthday'];
     $bio = $row['bio'];
     $height = $row['height'];
+    $pic = $row['pic'];
 }
 ?>
 <!-- Content Wrapper. Contains page content -->
@@ -49,7 +50,7 @@ if ($result = $conn->query($sql)) {
                     <h3 class="card-title"><?= $firstname . 'Info Edit'  ?></h3>
                 </div>
                 <div class="card-body">
-                    <form action='./userEditSave.php' method='POST' id='editForm'>
+                    <form action='./userEditSave.php' method='POST' id='editForm' enctype='multipart/form-data'>
                         <!-- Title and User -->
                         <!-- Title -->
                         <div class='row'>
@@ -140,14 +141,6 @@ if ($result = $conn->query($sql)) {
                             </div>
                         </div>
 
-                        <!-- Title -->
-                        <!-- <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <span class="input-group-text"><i class="fas fa-heading"></i>
-                &ensp;Title</span>
-        </div>
-        <input  name='title' type="title" class="form-control" placeholder="Title">
-    </div> -->
 
                         <!-- Bio -->
                         <div class="input-group mb-3">
@@ -209,16 +202,28 @@ if ($result = $conn->query($sql)) {
                             </div>
                         </div>
 
-                        <!-- Upload Pic -->
-                        <div class="input-group">
-                            <div class="custom-file">
-                                <input name='pic' type="file" class="custom-file-input" id="exampleInputFile">
-                                <label class="custom-file-label" for="exampleInputFile">Upload Photo</label>
+                        <!-- Pic show and upload -->
+                        <div class='row'>
+                            <div class='col-4'>
+                                <!-- Current pic display -->
+                                <span> Current photo </span></br>
+                                <img src="<?= $pic ?>" alt="Current pic" width="100" height="100" style="vertical-align:bottom">
                             </div>
-                            <div class="input-group-append">
-                                <span class="input-group-text" id="">Picture</span>
+                            <div class='col-8'>
+                                <!-- Upload Pic -->
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input name='pic' type="file" class="custom-file-input" id="exampleInputFile">
+                                        <label class="custom-file-label" for="exampleInputFile">Upload Photo</label>
+                                    </div>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text" id="">Picture</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <!-- /Pic show and upload -->
+
                     </form>
 
                     <!-- Button -->

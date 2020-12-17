@@ -61,8 +61,17 @@
                                 </div>
                             </div> -->
 
+
+                        <!-- Upload Pic -->
+                        <!-- TODO: Placeholder Img need to implement here -->
+                        <div class="form-group mb-3">
+                            <label for="exampleFormControlFile1">Photo</label>
+                            <input type="file" name="img" class="form-control" />
+                            <!-- <input type="submit" name="submit" value="Upload" class="form-control-file" id="exampleFormControlFile1"> -->
+                        </div>
+
                         <div class="page-content header-clear-medium">
-                            <div class="content">
+                            <!-- <div class="content">
                                 <div class="container container-fluid">
                                     <div class="row">
                                         <div class="w-100 text-center">
@@ -82,10 +91,7 @@
                                         </div>
                                     </div>
                                 </div>
-
-                            </div>
-
-                            
+                            </div> -->
                             <button form='NGOAddForm' class="btn btn-primary"> Add </button>
                         </div>
                 </form>

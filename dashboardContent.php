@@ -1,3 +1,9 @@
+<?php
+require 'config.php';
+$sql = ''
+?>
+
+
 <div class="content-wrapper" style="min-height: 564.331px;">
   <!-- Content Header (Page header) -->
   <div class="content-header">
@@ -18,7 +24,9 @@
   <section class="content">
     <div class="container-fluid">
       <!-- Small boxes (Stat box) -->
+      <!-- row 1 -->
       <div class="row">
+        <!-- .col 1 User Registration-->
         <div class="col-lg-3 col-6">
           <!-- small box -->
           <div class="small-box bg-warning">
@@ -53,7 +61,9 @@
                 <a href="./user.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
               </div> -->
         </div>
-        <!-- ./col -->
+        <!-- ./col 1 -->
+
+        <!-- col 2 No of NGOs-->
         <div class="col-lg-3 col-6">
           <!-- small box -->
           <div class="small-box bg-success">
@@ -73,18 +83,20 @@
             <a href="./adminNGO.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
-        <!-- ./col -->
+        <!-- ./col 2 -->
+
+        <!-- col 3 No of Team -->
         <div class="col-lg-3 col-6">
           <!-- small box -->
           <div class="small-box bg-success">
             <div class="inner">
               <?php
-              $sql = "SELECT COUNT(id) FROM teams";
-              $result = $conn->query($sql);
-              $row = $result->fetch_assoc();
-              $team_count = $row['COUNT(id)'];
+              // $sql = "SELECT COUNT(id) FROM teams";
+              // $result = $conn->query($sql);
+              // $row = $result->fetch_assoc();
+              // $team_count = $row['COUNT(id)'];
               ?>
-              <h3><?= $team_count ?><sup style="font-size: 20px"></sup></h3>
+              <h3>$team_count <sup style="font-size: 20px"></sup></h3>
               <p>No Of Teams</p>
             </div>
             <div class="icon">
@@ -92,31 +104,38 @@
             </div>
             <a href="./adminNGO.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
-
         </div>
-        <!-- ./col -->
+        <!-- ./col 3 -->
       </div>
-      <!-- /.row -->
+      <!-- /.row 1 -->
+
+      <!-- row 2 -->
       <div class='row'>
+        <!--col 1 Total No of Team Members  -->
         <div class="col-lg-3 col-6">
           <!-- small box -->
+          <!--Total No of Team Members  -->
           <div class="small-box bg-success">
             <div class="inner">
               <?php
-              $sql = "SELECT COUNT(id) FROM team_members";
-              $result = $conn->query($sql);
-              $row = $result->fetch_assoc();
-              $team_members_count = $row['COUNT(id)'];
+              // $sql = "SELECT COUNT(id) FROM team_members";
+              // $result = $conn->query($sql);
+              // $row = $result->fetch_assoc();
+              // $team_members_count = $row['COUNT(id)'];
               ?>
-              <h3><?= $team_members_count ?><sup style="font-size: 20px"></sup></h3>
-              <p>Total No of Team Members</p>
+              <h3>$team_members_count <sup style="font-size: 20px"></sup></h3>
+              <p>Total Team Members</p>
             </div>
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
             </div>
             <a href="./adminNGO.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
+          <!-- /Total No of Team Members  -->
         </div>
+        <!--/ col 1 Total No of Team Members  -->
+
+        <!--col 2 Total No goal available  -->
         <div class="col-lg-3 col-6">
           <!-- small box -->
           <div class="small-box bg-success">
@@ -136,33 +155,89 @@
             <a href="./adminNGO.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
           </div>
         </div>
-        <div class="col-lg-3 col-6">
-          <!-- small box -->
-          <div class="small-box bg-success">
-            <div class="inner">
-              <?php
-              $sql = "SELECT COUNT(id) FROM achievements";
-              $result = $conn->query($sql);
-              $row = $result->fetch_assoc();
-              $achievements_count = $row['COUNT(id)'];
-              ?>
-              <h3><?= $achievements_count ?><sup style="font-size: 20px"></sup></h3>
-              <p>No of Achievements Available</p>
-            </div>
-            <div class="icon">
-              <i class="ion ion-stats-bars"></i>
-            </div>
-            <a href="./adminNGO.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-          </div>
-        </div>
-
-
-
+        <!--/col 2 Total No goal available  -->
       </div>
+      <!-- /.row 2 -->
 
-      <!-- /.row (main row) -->
+
+      <!-- row 3 -->
+      <div class="row">
+        <div class="col">         <!-- Hall of fame -->
+          <div class="col-md-6">
+            <!-- USERS LIST -->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Hall of fame</h3>
+
+                <div class="card-tools">
+                  <span class="badge badge-danger">$no_of_people </span>
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                  </button>
+                  <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body p-0">
+                <ul class="users-list clearfix">
+                  <li>
+                    <img src="dist/img/user1-128x128.jpg" alt="User Image">
+                    <a class="users-list-name" href="#">Alexander Pierce</a>
+                    <span class="users-list-date">Today</span>
+                  </li>
+                  <li>
+                    <img src="dist/img/user8-128x128.jpg" alt="User Image">
+                    <a class="users-list-name" href="#">Norman</a>
+                    <span class="users-list-date">Yesterday</span>
+                  </li>
+                  <li>
+                    <img src="dist/img/user7-128x128.jpg" alt="User Image">
+                    <a class="users-list-name" href="#">Jane</a>
+                    <span class="users-list-date">12 Jan</span>
+                  </li>
+                  <li>
+                    <img src="dist/img/user6-128x128.jpg" alt="User Image">
+                    <a class="users-list-name" href="#">John</a>
+                    <span class="users-list-date">12 Jan</span>
+                  </li>
+                  <li>
+                    <img src="dist/img/user2-160x160.jpg" alt="User Image">
+                    <a class="users-list-name" href="#">Alexander</a>
+                    <span class="users-list-date">13 Jan</span>
+                  </li>
+                  <li>
+                    <img src="dist/img/user5-128x128.jpg" alt="User Image">
+                    <a class="users-list-name" href="#">Sarah</a>
+                    <span class="users-list-date">14 Jan</span>
+                  </li>
+                  <li>
+                    <img src="dist/img/user4-128x128.jpg" alt="User Image">
+                    <a class="users-list-name" href="#">Nora</a>
+                    <span class="users-list-date">15 Jan</span>
+                  </li>
+                  <li>
+                    <img src="dist/img/user3-128x128.jpg" alt="User Image">
+                    <a class="users-list-name" href="#">Nadia</a>
+                    <span class="users-list-date">15 Jan</span>
+                  </li>
+                </ul>
+                <!-- /.users-list -->
+              </div>
+              <!-- /.card-body -->
+              <div class="card-footer text-center">
+                <a href="javascript:">View All Users</a>
+              </div>
+              <!-- /.card-footer -->
+            </div>
+            <!--/.card -->
+          </div>
+          <!-- Hall of fame -->
+        </div>
+      </div>
     </div><!-- /.container-fluid -->
   </section>
-  
+
   <!-- /.content -->
 </div>

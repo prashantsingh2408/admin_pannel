@@ -20,20 +20,10 @@
         <div class="container-fluid">
             <div class="card card-info">
                 <div class="card-header">
-                    <?php
-
-                    //If user refresh  move to user.php
-                    // if (!isset($_POST['id'])) {
-                    //     echo "<script>
-                    //     window.location.href = 'user.php';
-                    //     </script>";
-                    // }
-
-                    ?>
                     <h3 class="card-title">Add User</h3>
                 </div>
                 <div class="card-body">
-                    <form action='./userAddSave.php' method="post" enctype="multipart/form-data" id='editForm'>
+                    <form action='./userAddSave.php' method="POST" enctype="multipart/form-data" id='editForm'>
                         <!-- Title and User -->
                         <!-- Title -->
                         <div class='row'>
@@ -177,51 +167,53 @@
                             </div>
                         </div>
 
-                        <!-- Upload Pic -->
+                    <!-- Upload Pic -->
+                    <!-- TODO: Placeholder Img need to implement here -->
                         <div class="form-group mb-3">
                             <label for="exampleFormControlFile1">Photo</label>
-                            <input type="file" name="file" class="form-control">
+                            <input type="file" name="pic" class="form-control" />
                             <!-- <input type="submit" name="submit" value="Upload" class="form-control-file" id="exampleFormControlFile1"> -->
                         </div>
 
-                    </form>
 
-                    <!-- Button -->
-                    <div class="card-footer">
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                            Add
-                        </button>
-                        <!-- <button type="submit" name='id' value="<?= $id ?>" class="btn btn-info">Edit</button> -->
-                        <!-- <a>
+
+                        <!-- Button -->
+                        <div class="card-footer">
+                            <!-- Button trigger modal -->
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                Add
+                            </button>
+                            <!-- <button type="submit" name='id' value="<?= $id ?>" class="btn btn-info">Edit</button> -->
+                            <!-- <a>
                             <button class="btn btn-default float-right">Done</button>
                         </a> -->
-                    </div>
+                        </div>
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Done</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">User Added</div>
-                                <div class="modal-footer">
-                                    <button form='editForm' type='submit' name='id' value='<?= $id ?>' class="btn btn-secondary">
-                                        Submit
-                                    </button>
-                                    <!-- <button type="submit" form='editForm' class="btn btn-secondary"
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Done</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">User Added</div>
+                                    <div class="modal-footer">
+                                        <button form='editForm' type='submit' name='id' value='<?= $id ?>' class="btn btn-secondary">
+                                            Submit
+                                        </button>
+                                        <!-- <button type="submit" form='editForm' class="btn btn-secondary"
                                         data-dismiss="modal">
                                         Done
                                     </button> -->
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- END Model -->
+                        <!-- END Model -->
+                    </form>
 
                 </div>
                 <!-- /.card-body -->

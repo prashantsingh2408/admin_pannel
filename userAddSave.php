@@ -2,23 +2,89 @@
 require 'config.php';
 
 // Create NGO ID
-//max id + 1 
+//max id + 1
 $sql = "SELECT MAX(id) FROM user";
 $result = $conn->query($sql);
 $row = $result->fetch_assoc();
 $id_new = $row['MAX(id)'] + 1;
 echo 'new id' . $id_new;
 echo '</br>';
+// END Create NGO ID
+
 // Insert new id_new
 $sql = "INSERT INTO user(id) VALUES ($id_new)";
 echo $sql;
 if (!($result = $conn->query($sql))) {
     echo ("Error description: " . $conn->error);
 }
+//END Insert new id_new
+
+
+//// Input file
+    $target_dir = "uploads/";
+    $target_file = $target_dir . basename($_FILES['pic']['name']);
+    $uploadOk = 1;
+    echo $target_file;
+    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+    //Check if image file is a actual image or
+    //fake image
+    if(isset($_POST['submit'])){
+    $check=getimagesize($_FILES['pic']['tmp_name']);
+    //Check for img or not
+    if($check != false){
+        echo "File is image -" . $check["mime"].".";
+        $uploadOk= 1;
+    }else{
+        echo "File is not as image.";
+        $uploadOk = 0;
+    }
+    }
+
+    // Check if file already exists
+    if (file_exists($target_file)) {
+        echo "Sorry, file already exists.";
+        $uploadOk = 0;
+    }
+
+    // Check file size
+    if ($_FILES['pic']['size'] > 500000) {
+        echo "Sorry, your file is too large.";
+        $uploadOK = 0;
+    }
+
+    // Allow certain file formats
+    if (
+        $imageFileType != 'jpg' && $imageFileType != 'png' && $imageFileType != 'jpeg'
+        && $imageFileType != 'gif'
+    ) {
+        echo "Sorry, only JPG, JPEG, PNG, GIF file are allowed.";
+        $uploadOk = 0;
+    }
+
+    // Check if $uploadOk is set to 0 by an error message
+    if ($uploadOk == 0) {
+        echo "Sorry, your file was not uploaded.";
+        // if everything is ok, try to upload file
+    } else {
+        if (move_uploaded_file($_FILES['pic']['tmp_name'], $target_file)) {
+            echo "The file " . htmlspecialchars(basename($_FILES['pic']['name'])) . "has been uploaded.";
+        } else {
+            echo "Sorry, there was an error uploading your file. ";
+        }
+    }
+            
+    // save location in db
+    $sql = "UPDATE user SET pic = '$target_file' WHERE id = $id_new";
+    $conn->query($sql);
+
+////END Input file
+
 // Add entity in table from $_POST
 foreach ($_POST as $key => $value) {
-    echo $key. '--'.$value;
-    echo '</br>';
+    echo $key . ',';
+    // echo $key. '--'.$value;
+    // echo '</br>';
     if ($key !== 'id') { //Skip 'id' as key
         if ($key == 'birthday') { //convert birthday into sql date format
             // birthdays
@@ -35,64 +101,24 @@ foreach ($_POST as $key => $value) {
             $datesql = $year . '-' . $month . '-' . $day;
             $sql = "UPDATE user SET $key = '$datesql' WHERE id = $id_new";
             $conn->query($sql);
-            echo $sql;
-            echo $key . '--' . $datesql;
-            echo '</br>';
+            // echo $sql;
+            // echo $key . '--' . $datesql;
+            // echo '</br>';
         }
 
-        else if($key =='file'){
-            // File upload path
-            echo 'ho';
-            echo '</br>';
 
-            $targetDir = "img/";
-            echo $targetDir;
-            $fileName = basename($_FILES["file"]["name"]);
-            $targetFilePath = $targetDir . $fileName;
-            $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
-            if (isset($_POST["submit"]) && !empty($_FILES["file"]["name"])) 
-            {
-                // Allow certain file formats
-                $allowTypes = array('jpg', 'png', 'jpeg', 'gif', 'pdf');
-                if (in_array($fileType, $allowTypes)) 
-                {
-                    // Upload file to server
-                    if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)) 
-                    {
-                        // Insert image file name into database
-                        $insert = $conn->query("UPDATE user SET pic = '$fileName' WHERE id = $id_new");
-                        if ($insert) 
-                        {
-                            $statusMsg = "The file " . $fileName . " has been uploaded successfully.";
-                        } else 
-                        {
-                            $statusMsg = "File upload failed, please try again.";
-                        }
-                    } else 
-                    {
-                        $statusMsg = "Sorry, there was an error uploading your file.";
-                    }
-                } 
-                else 
-                {
-                    $statusMsg = 'Sorry, only JPG, JPEG, PNG, GIF, & PDF files are allowed to upload.';
-                }
-            } 
-            else 
-            {
-                $statusMsg = 'Please select a file to upload.';
-            }
-        }
-        elseif (is_numeric($value)) {
+        else if (is_numeric($value)) {
             $sql = "UPDATE user SET $key = $value WHERE id = $id_new";
             $conn->query($sql);
-            echo 'num'. $key . '--' . $value;
-            echo '</br>';
+            // echo $sql;
+            // echo 'num'. $key . '--' . $value;
+            // echo '</br>';
         } else { //if alphabet save $value as 'string'
             $sql = "UPDATE user SET $key = '$value' WHERE id = $id_new";
             $conn->query($sql);
-            echo 'alp' . $key . '--' . $value;
-            echo '</br>';
+            // echo $sql;
+            // echo 'alp' . $key . '--' . $value;
+            // echo '</br>';
         }
         if (!($conn->query($sql))) {
             echo("Error description: " . $conn->error);
