@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
-<?php require_once "head.php";
-require_once 'config.php'; ?>
+<?php require_once "head.php" ?>
 
 <body class="hold-transition sidebar-mini layout-fixed">
   <div class="wrapper">
@@ -10,7 +9,7 @@ require_once 'config.php'; ?>
 
     <?php require_once "mainSidebar.php" ?>
 
-    <?php require_once "teamContent.php" ?>
+    <?php require_once "NGO_event_add_content.php" ?>
     <?php require_once "footer.php" ?>
 
     <!-- Control Sidebar -->
@@ -26,13 +25,14 @@ require_once 'config.php'; ?>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script>
-    function removeTeam($id) {
+    function remove($id) {
       $("#" + $id).remove();
-      $.post("teamRemove.php", {
-          id: $id,
+      id = $id;
+      $.post("userRemove.php", {
+          id: id,
         },
         function(data, status) {
-          window.location.replace("team.php");
+          //alert(data);
         });
     }
 
@@ -85,16 +85,6 @@ require_once 'config.php'; ?>
           confirm('Added');
           //Hide Form again after adding
           document.getElementById('hideAddForm').style.display = 'none';
-        });
-    }
-
-    function userEdit(id) {
-      alert(id);
-      $.post('userEdit.php', {
-          id: id
-        },
-        function(data, status) {
-          alert(data);
         });
     }
   </script>

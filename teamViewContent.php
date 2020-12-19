@@ -12,7 +12,7 @@ $row = $result->fetch_assoc();
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0 text-dark"><?= $row['t_name'] ?> Info</h1>
+          <h1 class="m-0 text-dark"><?= $row['name'] ?> Info</h1>
         </div><!-- /.col -->
         <div class="col-sm-6">
 
@@ -43,33 +43,21 @@ $row = $result->fetch_assoc();
                 <td><?= $row['id'] ?></td>
               </tr>
               <tr>
-                <td>Table Name</td>
-                <td><?= $row['t_name'] ?></td>
+                <td>Name</td>
+                <td><?= $row['name'] ?></td>
               </tr>
 
               <tr>
-                <td>Leader first name</td>
-                <td><?= $row['t_fn_leader'] ?></td>
+                <td>Leader name</td>
+                <td><?= $row['team_leader'] ?></td>
               </tr>
-
               <tr>
-                <td>Leader last name</td>
-                <td><?= $row['t_ln_leader'] ?></td>
+                <td>Team memebrs</td>
+                <td><?= $row['team_members'] ?></td>
               </tr>
-
               <tr>
-                <td>No of members</td>
-                <td><?= $row['t_members'] ?></td>
-              </tr>
-
-              <tr>
-                <td>Purpose</td>
-                <td><?= $row['t_purpose'] ?></td>
-              </tr>
-
-              <tr>
-                <td>User ID</td>
-                <td><?= $row['user_id'] ?></td>
+                <td>pic</td>
+                <td><img  src="<?= $row['pic'] ?>" alt="<?= $row['pic'] ?> . 'not fount'" height='60'></td>
               </tr>
             </tbody>
           </table>

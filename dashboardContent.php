@@ -1,6 +1,8 @@
 <?php
 require 'config.php';
-$sql = ''
+$sql = "SELECT  * FROM teams";
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
 ?>
 
 
@@ -75,7 +77,7 @@ $sql = ''
               $ngos_count = $row['COUNT(id)'];
               ?>
               <h3><?= $ngos_count ?><sup style="font-size: 20px"></sup></h3>
-              <p>No Of NGOs</p>
+              <p>No of NGOs</p>
             </div>
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
@@ -91,13 +93,14 @@ $sql = ''
           <div class="small-box bg-success">
             <div class="inner">
               <?php
-              // $sql = "SELECT COUNT(id) FROM teams";
-              // $result = $conn->query($sql);
-              // $row = $result->fetch_assoc();
-              // $team_count = $row['COUNT(id)'];
+              // count no of team member
+              $sql = "SELECT COUNT(id) FROM teams";
+              $result = $conn->query($sql);
+              $row = $result->fetch_assoc();
+              $team_count = $row['COUNT(id)'];
               ?>
-              <h3>$team_count <sup style="font-size: 20px"></sup></h3>
-              <p>No Of Teams</p>
+              <h3><?= $team_count  ?> <sup style="font-size: 20px"></sup></h3>
+              <p>No of Teams</p>
             </div>
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
@@ -118,12 +121,12 @@ $sql = ''
           <div class="small-box bg-success">
             <div class="inner">
               <?php
-              // $sql = "SELECT COUNT(id) FROM team_members";
-              // $result = $conn->query($sql);
-              // $row = $result->fetch_assoc();
-              // $team_members_count = $row['COUNT(id)'];
+              $sql = "SELECT COUNT(id) FROM team_members";
+              $result = $conn->query($sql);
+              $row = $result->fetch_assoc();
+              $team_members_count = $row['COUNT(id)'];
               ?>
-              <h3>$team_members_count <sup style="font-size: 20px"></sup></h3>
+              <h3><?= $team_members_count ?> <sup style="font-size: 20px"></sup></h3>
               <p>Total Team Members</p>
             </div>
             <div class="icon">
@@ -147,7 +150,7 @@ $sql = ''
               $goals_count = $row['COUNT(goal_id)'];
               ?>
               <h3><?= $goals_count ?><sup style="font-size: 20px"></sup></h3>
-              <p>No Of Goals Available</p>
+              <p>No of Goals Available</p>
             </div>
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
@@ -162,7 +165,17 @@ $sql = ''
 
       <!-- row 3 -->
       <div class="row">
-        <div class="col">         <!-- Hall of fame -->
+        <div class="col">
+          <!-- Hall of fame -->
+          <!-- Base on total_donation_steps -->
+          <!-- Fetch hall of fame -->
+          <?php
+          require "config.php";
+          $sql = "SELECT total_donation_steps,id,firstname,lastname,pic FROM user ORDER BY total_donation_steps DESC";
+          $result = $conn->query($sql);
+
+          $total_users = $result->num_rows;
+          ?>
           <div class="col-md-6">
             <!-- USERS LIST -->
             <div class="card">
@@ -170,7 +183,7 @@ $sql = ''
                 <h3 class="card-title">Hall of fame</h3>
 
                 <div class="card-tools">
-                  <span class="badge badge-danger">$no_of_people </span>
+                  <span class="badge badge-danger"><?= $total_users ?> </span>
                   <button type="button" class="btn btn-tool" data-card-widget="collapse">
                     <i class="fas fa-minus"></i>
                   </button>
@@ -180,14 +193,31 @@ $sql = ''
                 </div>
               </div>
               <!-- /.card-header -->
+
+
               <div class="card-body p-0">
                 <ul class="users-list clearfix">
-                  <li>
-                    <img src="dist/img/user1-128x128.jpg" alt="User Image">
-                    <a class="users-list-name" href="#">Alexander Pierce</a>
-                    <span class="users-list-date">Today</span>
-                  </li>
-                  <li>
+                  <?php
+                  $i = 0;
+                  while ($rows = $result->fetch_assoc()) { //iterate over each row
+                    $i = $i + 1; // count no of user printed
+                  ?>
+                    <li>
+                      <img style='border-radius:50%;' src="<?= $rows['pic'] ?>" alt="<?= $rows['pic'] ?>">
+                      <a class="users-list-name" href="#"><?= $rows['total_donation_steps'] ?></a>
+                      <span class="users-list-date"><?= $rows['firstname'] . ' ' . $rows['lastname'] ?></span>
+                    </li>
+                  <?php
+
+                    if ($i > 10) {
+                      break; // only top 10 user print then loop break;
+                    }
+                  }
+                  ?>
+
+
+
+                  <!-- <li>
                     <img src="dist/img/user8-128x128.jpg" alt="User Image">
                     <a class="users-list-name" href="#">Norman</a>
                     <span class="users-list-date">Yesterday</span>
@@ -221,7 +251,7 @@ $sql = ''
                     <img src="dist/img/user3-128x128.jpg" alt="User Image">
                     <a class="users-list-name" href="#">Nadia</a>
                     <span class="users-list-date">15 Jan</span>
-                  </li>
+                  </li> -->
                 </ul>
                 <!-- /.users-list -->
               </div>
@@ -241,3 +271,9 @@ $sql = ''
 
   <!-- /.content -->
 </div>
+
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+  <!-- Control sidebar content goes here -->
+</aside>
+<!-- /.control-sidebar -->

@@ -28,10 +28,11 @@
         <!-- Team Heading -->
         <thead>
           <tr>
+            <th>Logo</th>
             <th>Id</th>
-            <th>Team name</th>
-            <th>Leader first name</th>
-            <th>Leader last name</th>
+            <th>Team Name</th>
+            <th>Team Leader</th>
+            <th>Team Members</th>
             <th class="float-right">
               <form id='teamAddForm' method="get" action='teamAdd.php'>
                 <button form='teamAddForm' type="submit" name="id" value="<?= $id ?>" class="btn btn-primary">
@@ -45,23 +46,24 @@
           <!-- Dynamic Table,Fetch and remove data from table -->
           <?php
           require 'config.php';
-          $sql = "SELECT id, t_name, t_fn_leader, t_ln_leader FROM teams";
+          $sql = "SELECT id,name, team_leader,team_members,pic FROM teams";
           $result = $conn->query($sql);
           while ($row = $result->fetch_assoc()) {
-            $id = $row['id'];
-            $t_name = $row['t_name'];
-            $t_fn_leader = $row['t_fn_leader'];
-            $t_ln_leader = $row['t_ln_leader'];
           ?>
-            <tr id="<?= 'team_row' . $id; ?>">
+            <tr id="<?= 'team_row' . $row['id']; ?>">
+
               <!-- Team Contents -->
-              <td><?= $id  ?></td>
-              <td><?= $t_name; ?></td>
-              <td><?= $t_fn_leader; ?></td>
-              <td><?= $t_ln_leader; ?></td>
+              <td><img src='<?= $row['pic']; ?>' height='40' alt='<?= $row['pic'] . 'not found' ?>'></td>
+              <td><?= $row['id'];  ?></td>
+              <td><?= $row['name']; ?></td>
+              <td><?= $row['team_leader']; ?></td>
+              <td><?= $row['team_members']; ?></td>
+
+
               <!-- Team Action Buttons -->
               <td class='text-right py-0 align-middle'>
                 <div class='btn-group btn-group-sm'>
+
                   <!-- Team Edit Button -->
                   <form action='teamEdit.php' method='get'>
                     <button type="submit" name="id" value="<?= $id ?>" class="btn btn-primary">
@@ -75,7 +77,7 @@
                   </form>
 
                   <!-- Team Remove Button -->
-                  <a onclick="removeTeam('<?= 'team_row' . $id; ?>')" class='btn btn-danger'><i class='fas fa-trash'></i></a>
+                  <a onclick="removeTeam('<?= 'team_row' . $row['id']; ?>')" class='btn btn-danger'><i class='fas fa-trash'></i></a>
                 </div>
               </td>
               <!-- /Team Action Buttons -->

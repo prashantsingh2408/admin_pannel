@@ -28,6 +28,7 @@
                 <thead>
                     <tr>
                         <!-- <th>Photo</th> -->
+                        <th>Photo</th>
                         <th>Id</th>
                         <th>FirstName</th>
                         <th>LastName</th>
@@ -54,19 +55,19 @@
                     $sql = "SELECT pic,id,firstname,lastname,phone,email,gender FROM user";
                     $result = $conn->query($sql);
                     while ($row = $result->fetch_assoc()) {
-                        $pic = $row['pic'];
                         $id = $row['id'];
                         $firstname = $row['firstname'];
                         $lastname = $row['lastname'];
                         $phone = $row['phone'];
                         $email = $row['email'];
                         $gender = $row['gender'];
+                        $pic_src= $row['pic']
+
                     ?>
 
                         <tr id="<?= 'row' . $id; ?>">
-
-                            <!-- <td><img src="<?= $pic; ?>"> </img></td> -->
-                            <td><?= $id  ?></td>
+                            <td><img  src='<?= $pic_src ?>' height='60' alt='<?= $pic_src ?> not found'></td>
+                            <td><?= $id ?></td>
                             <td><?= $firstname; ?></td>
                             <td><?= $lastname; ?></td>
                             <td><?= $phone; ?></td>

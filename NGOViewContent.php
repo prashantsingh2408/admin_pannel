@@ -41,10 +41,26 @@
                             foreach ($row as $key => $value) {
                             ?>
 
-                            <tr>
-                                <td> <?= $key ?></td>
-                                <th><?= $value ?></th>
-                            </tr>
+                                <tr>
+                                    <td> <?= $key ?></td>
+
+                                    <!-- Execute if not img -->
+                                    <?php
+                                    if ($key != 'img') {
+                                    ?>
+                                        <th><?= $value ?></th>
+
+                                    <!-- Execute if  img -->
+                                    <?php
+                                    } else {
+                                        $imgURL = 'uploads/' . $value;
+                                    ?>
+                                        <th><img src="<?= $imgURL ?>" alt='not loaded' height='100'></th>
+                                    <?php
+                                    }
+                                    ?>
+                                </tr>
+
                             <?php
                             }
                             ?>

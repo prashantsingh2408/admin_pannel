@@ -25,42 +25,116 @@
 
                         <!-- name_nogs -->
                         <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Name NGOs</span>
+                            </div>
                             <input name='name_ngos' type="text" class="form-control" placeholder="NGO Name">
                         </div>
                         <!--Partner -->
                         <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Partner</span>
+                            </div>
                             <input name='partner' type="text" class="form-control" placeholder="Partner">
                         </div>
-                        <!-- current_value -->
+                        <!-- current_amount -->
                         <div class="input-group mb-3">
-                            <input name='current_amount' type="text" class="form-control" placeholder="Current Value">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Current amount</span>
+                            </div>
+                            <input name='current_amount' type="text" class="form-control" placeholder="Current amount">
                         </div>
+                        <!-- current_amount -->
+
                         <!-- total_goal -->
                         <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Total Goal</span>
+                            </div>
                             <input name='total_goal' type="text" class="form-control" placeholder="Total Goal">
                         </div>
 
+
+                        <!-- no_of_workout -->
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">No of workout</span>
+                            </div>
+                            <input name='no_of_workout' type="text" class="form-control" placeholder="No of workout">
+                        </div>
+                        <!-- no_of_workout -->
+
                         <!-- description -->
                         <div class="input-group mb-3">
-                            <input name='discription' type="text" class="form-control" placeholder="Description">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Description</span>
+                            </div>
+                            <input name='description' type="text" class="form-control" placeholder="Description">
                         </div>
+                        <!-- description -->
 
                         <!-- about -->
                         <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">About</span>
+                            </div>
                             <input name='about' type="text" class="form-control" placeholder="About">
                         </div>
 
-                        <!-- Img -->
-                        <!-- <div class="input-group">
-                                <div class="custom-file">
-                                    <input name='file' type="file" class="custom-file-input" id="exampleInputFile">
-                                    <label class="custom-file-label" for="exampleInputFile">Upload Photo</label>
+                        <!-- amount_raised-->
+                        <div class='col'>
+                            <div class="input-group mb-3 ">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Amount raised</span>
                                 </div>
-                                <div class="input-group-append">
-                                    <span class="input-group-text" id="">Picture</span>
-                                </div>
-                            </div> -->
+                                <input name='amount_raised' type="text" class="form-control" placeholder="amount_raised">
+                            </div>
+                        </div>
+                        <!-- /amount_raised -->
 
+                        <!-- on_of_days-->
+                        <div class='col'>
+                            <div class="input-group mb-3 ">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">No of Days</span>
+                                </div>
+                                <input name='on_of_days' type="text" class="form-control" placeholder="on_of_days">
+                            </div>
+                        </div>
+                        <!-- /on_of_days -->
+
+                        <!-- events-->
+                        <div class='col'>
+                            <div class="input-group mb-3 ">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Event</span>
+                                </div>
+                                <input name='events' type="text" class="form-control" placeholder="Event">
+                            </div>
+                        </div>
+                        <!-- /events -->
+
+                        <!-- change_makers-->
+                        <div class='col'>
+                            <div class="input-group mb-3 ">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Change Makers</span>
+                                </div>
+                                <input name='change_makers' type="text" class="form-control" placeholder="Change Makers">
+                            </div>
+                        </div>
+                        <!-- /change_makers -->
+
+                        <!-- timespent-->
+                        <div class='col'>
+                            <div class="input-group mb-3 ">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Time Spent</span>
+                                </div>
+                                <input name='timespent' type="text" class="form-control" placeholder="Time Spent">
+                            </div>
+                        </div>
+                        <!-- /timespent -->
 
                         <!-- Upload Pic -->
                         <!-- TODO: Placeholder Img need to implement here -->
@@ -71,27 +145,7 @@
                         </div>
 
                         <div class="page-content header-clear-medium">
-                            <!-- <div class="content">
-                                <div class="container container-fluid">
-                                    <div class="row">
-                                        <div class="w-100 text-center">
-                                            <div id="imgContainer">
-                                                <form enctype="multipart/form-data" action="image_upload_demo_submit.php" method="post" name="image_upload_form" id="image_upload_form">
-                                                    <div id="imgArea"><img src="./img/default.jpg">
-                                                        <div class="progressBar">
-                                                            <div class="bar"></div>
-                                                            <div class="percent">0%</div>
-                                                        </div>
-                                                        <div id="imgChange"><span>Change Photo</span>
-                                                            <input type="file" accept="image/*" name="image_upload_file" id="image_upload_file">
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
+
                             <button form='NGOAddForm' class="btn btn-primary"> Add </button>
                         </div>
                 </form>

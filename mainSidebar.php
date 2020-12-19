@@ -62,41 +62,41 @@
                           <li class="nav-item">
                               <a href="./adminNGO.php" class="nav-link">
                                   <!-- <i class="far fa-circle nav-icon"></i> -->
-                                  <p>NGO</p>
+                                  <p>NGO & Events</p>
                               </a>
                           </li>
                       </ul>
-                      <ul class="nav nav-treeview">
-                          <li class="nav-item">
-                              <a href="./addGoals.php" class="nav-link">
-                                  <!-- <i class="far fa-circle nav-icon"></i> -->
-                                  <p>Add Goals</p>
-                              </a>
-                          </li>
-                          <li class="nav-item">
-                              <a href="./achievement.php" class="nav-link">
-                                  <!-- <i class="far fa-circle nav-icon"></i> -->
-                                  <p>Achievement</p>
-                              </a>
-                          </li>
-                          <li class="nav-item">
-                              <a href="./stepRate.php" class="nav-link">
-                                  <!-- <i class="far fa-circle nav-icon"></i> -->
-                                  <p>Step Rate</p>
-                              </a>
-                          </li>
-                          <li class="nav-item">
-                              <a href="./team.php" class="nav-link">
-                                  <!-- <i class="far fa-circle nav-icon"></i> -->
-                                  <p>Team</p>
-                              </a>
-                          </li>
-                      </ul>
+                          <ul class="nav nav-treeview">
+                              <li class="nav-item">
+                                  <a href="./addGoals.php" class="nav-link">
+                                      <!-- <i class="far fa-circle nav-icon"></i> -->
+                                      <p>Add Goals</p>
+                                  </a>
+                              </li>
+                              <li class="nav-item">
+                                  <a href="./achievement.php" class="nav-link">
+                                      <!-- <i class="far fa-circle nav-icon"></i> -->
+                                      <p>Achievement</p>
+                                  </a>
+                              </li>
+                              <li class="nav-item">
+                                  <a href="./stepRate.php" class="nav-link">
+                                      <!-- <i class="far fa-circle nav-icon"></i> -->
+                                      <p>Step Rate</p>
+                                  </a>
+                              </li>
+                              <li class="nav-item">
+                                  <a href="./team.php" class="nav-link">
+                                      <!-- <i class="far fa-circle nav-icon"></i> -->
+                                      <p>Team</p>
+                                  </a>
+                              </li>
+                          </ul>
                   </li>
                   <!-- /Admin -->
 
                   <!-- Site Edit -->
-                  <li class="nav-item has-treeview menu-open">
+                  <!-- <li class="nav-item has-treeview menu-open">
                       <a href="#" class="nav-link ">
                           <i class="nav-icon fas fa-tachometer-alt"></i>
                           <p>
@@ -107,15 +107,13 @@
                       <ul class="nav nav-treeview">
                           <li class="nav-item">
                               <a href="./preloader.php" class="nav-link">
-                                  <!-- <i class="far fa-circle nav-icon"></i> -->
+                                  <i class="far fa-circle nav-icon"></i>
                                   <p>Preloader</p>
                               </a>
                           </li>
                       </ul>
-                  </li>
-                  <!-- /Admin -->
-
-
+                  </li> -->
+                  <!-- /Site Edit -->
               </ul>
           </nav>
           <!-- /.sidebar-menu -->

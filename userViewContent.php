@@ -40,32 +40,30 @@ $row = $result->fetch_assoc();
                         <tbody>
                             <?php
                             foreach ($row as $key => $value) {
-                            ?>
-                                <?php
-                                //Get Pic URL
-                                if ($key == 'pic') {
-                                    $sql = "SELECT pic FROM user WHERE id= $id";
-                                    $result = $conn -> query($sql);
-                                    $row = $result->fetch_assoc();
-                                    $picURL = 'img/'.$row['pic'];
 
+                                if($key !="pic"){
                                 ?>
-                                    <!-- Display pic -->
-                                    <tr>
-                                        <td> <?= $key ?> </td>
-                                        <th> <img src='<?= $picURL ?>'> </th>
-                                    </tr>
-
-                                <?php
-                                } else {
-                                ?>
-                                <!-- Display other entities -->
                                     <tr>
                                         <td> <?= $key ?> </td>
                                         <th> <?= $value ?> </th>
                                     </tr>
-                            <?php }
-                            } ?>
+                                <?php
+                                }else{
+                                    ?>
+                                    <tr>
+                                        <td> <?= $key ?> </td>
+                                        <th>
+                                            <img src ="<?= $value ?>" alt="<?=$value . 'not found' ?>" height='100'>
+                                        </th>
+                                    </tr>
+                                <?php
+                                }
+                                ?>
+
+                            <?php
+                            }
+                            ?>
+                    
                         </tbody>
                     </table>
                 </div>

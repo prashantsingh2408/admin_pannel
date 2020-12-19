@@ -36,7 +36,7 @@ $row = $result->fetch_assoc();
         </div>
         <div class="card-body">
           <!-- Team Edit Form -->
-          <form action='./teamEditSave.php' method='get' id='editForm'>
+          <form action='./teamEditSave.php' method='post' id='editForm' enctype='multipart/form-data'>
             <div class='row'>
               <!-- User id(disable,user cant't change it) -->
               <div class='col'>
@@ -44,65 +44,66 @@ $row = $result->fetch_assoc();
                   <div class="input-group-prepend">
                     <span class="input-group-text">@ ID</span>
                   </div>
-                  <input disabled name='id' type="text" class="form-control" placeholder="<?= $row['id'] ?>" value="<?= $row['id'] ?>">
+                  <input disabled name='id' type="text" class="form-control" placeholder="<?= $row['id'] ?>" value="<?= $id ?>">
                 </div>
               </div>
-              <!-- t_name-->
+              <!-- name-->
+              <div class='col'>
+                <div class="input-group mb-3 ">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">@ Name</span>
+                  </div>
+                  <input name='name' type="text" class="form-control" placeholder="<?= $row['name'] ?>" value="<?= $row['name'] ?>">
+                </div>
+              </div>
+              <!-- /name -->
+
+              <!-- team_leader-->
               <div class='col'>
                 <div class="input-group mb-3 ">
                   <div class="input-group-prepend">
                     <span class="input-group-text">@ Last Name</span>
                   </div>
-                  <input name='t_name' type="text" class="form-control" placeholder="<?= $row['t_name'] ?>" value="<?= $row['t_name'] ?>">
+                  <input name='team_leader' type="text" class="form-control" placeholder="<?= $row['team_leader'] ?>" value="<?= $row['team_leader'] ?>">
                 </div>
               </div>
-              <!-- /t_name -->
+            </div>
+            <!-- /team_leader-->
 
-              <!-- t_fn_leader-->
-              <div class='col'>
-                <div class="input-group mb-3 ">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">@ Last Name</span>
+            <!-- team_members-->
+            <div class='col'>
+              <div class="input-group mb-3 ">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">@ Team members</span>
+                </div>
+                <input name='team_members' type="text" class="form-control" placeholder="<?= $row['team_members'] ?>" value="<?= $row['team_members'] ?>">
+              </div>
+            </div>
+
+            <!-- /team_members -->
+
+            <!-- Pic show and upload -->
+            <div class='row'>
+              <div class='col-4'>
+                <!-- Current pic display -->
+                <span> Current photo </span></br>
+                <img src="<?= $row['pic'] ?>" alt="Current pic" width="100" height="100" style="vertical-align:bottom">
+              </div>
+              <div class='col-8'>
+                <!-- Upload Pic -->
+                <div class="input-group">
+                  <div class="custom-file">
+                    <input name='pic' type="file" class="custom-file-input" id="exampleInputFile">
+                    <label class="custom-file-label" for="exampleInputFile">Upload Photo</label>
                   </div>
-                  <input name='t_fn_leader' type="text" class="form-control" placeholder="<?= $row['t_fn_leader'] ?>" value="<?= $row['t_fn_leader'] ?>">
+                  <div class="input-group-append">
+                    <span class="input-group-text" id="">Picture</span>
+                  </div>
                 </div>
               </div>
             </div>
-            <!-- /t_fn_name -->
+            <!-- /Pic show and upload -->
 
-            <!-- t_ln_leader-->
-            <div class='col'>
-              <div class="input-group mb-3 ">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">@ Last Name</span>
-                </div>
-                <input name='t_ln_leader' type="text" class="form-control" placeholder="<?= $row['t_ln_leader'] ?>" value="<?= $row['t_ln_leader'] ?>">
-              </div>
-            </div>
-
-            <!-- /t_ln_name -->
-
-            <!-- t_member-->
-            <div class='col'>
-              <div class="input-group mb-3 ">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">@ Team member</span>
-                </div>
-                <input name='t_members' type="text" class="form-control" placeholder="<?= $row['t_members'] ?>" value="<?= $row['t_members'] ?>">
-              </div>
-            </div>
-
-            <!-- /t_members -->
-
-            <!-- user_id-->
-            <div class='col'>
-              <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">@ User ID</span>
-                </div>
-                <input name='user_id' type="text" class="form-control" placeholder="<?= $row['user_id'] ?>" value="<?= $row['user_id'] ?>">
-              </div>
-            </div>
         </div>
         <!-- /user_id -->
         </form>
